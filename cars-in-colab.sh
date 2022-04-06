@@ -69,7 +69,7 @@ then
 
 else
 	# create orfeo toolbox archive
-	echo ">> (2/5) Create Untar pre-compiled-otb (expected duration: ~20min)"
+	echo ">> (2/5) Create pre-compiled-otb (expected duration: ~20min)"
 	SECONDS=0
 	mkdir -p /opt/otb && cd /opt/otb && \
 	wget -q https://www.orfeo-toolbox.org/packages/archives/OTB/OTB-7.4.0.zip -O /tmp/OTB-7.4.0.zip && \
