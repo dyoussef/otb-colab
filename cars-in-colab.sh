@@ -89,6 +89,7 @@ else
 	ninja install && \
 	rm -rf /opt/otb
     cd /usr/local && tar cvfz otb.tar.gz otb && mv otb.tar.gz /content/.
+    cd /content
 fi
 echo "Elapsed time: ${SECONDS} seconds"
 
