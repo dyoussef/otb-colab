@@ -2,20 +2,20 @@
 set -e
 PROGNAME=$0
 usage() {
-  cat << EOF >&2
+    cat << EOF >&2
 Usage: $PROGNAME [-f]
 
        -f: install from scratch (compiling OTB ~20min)
 EOF
-  exit 1
+    exit 1
 }
 
 FROM_SCRATCH=0
 while getopts f o; do
-  case $o in
-    (f) FROM_SCRATCH=1;;
-    (*) usage
-  esac
+    case $o in
+	(f) FROM_SCRATCH=1;;
+	(*) usage
+    esac
 done
 shift "$((OPTIND - 1))"
 
@@ -63,15 +63,15 @@ echo "Elapsed time: ${SECONDS} seconds"
 SECONDS=0
 if [ "$FROM_SCRATCH" -eq 0 ]
 then
-	# download pre-compiled-otb
-	echo ">> (2/5) Download pre-compiled-otb (expected duration: <1s)"
-	wget https://raw.githubusercontent.com/dyoussef/otb-colab/main/otb.tar.gz 1>/dev/null 2>&1
+    # download pre-compiled-otb
+    echo ">> (2/5) Download pre-compiled-otb (expected duration: <1s)"
+    wget https://raw.githubusercontent.com/dyoussef/otb-colab/main/otb.tar.gz 1>/dev/null 2>&1
 
 else
-	# create orfeo toolbox archive
-	echo ">> (2/5) Create pre-compiled-otb (expected duration: ~20min)"
-	SECONDS=0
-	mkdir -p /opt/otb && cd /opt/otb && \
+    # create orfeo toolbox archive
+    echo ">> (2/5) Create pre-compiled-otb (expected duration: ~20min)"
+    SECONDS=0
+    mkdir -p /opt/otb && cd /opt/otb && \
 	wget -q https://www.orfeo-toolbox.org/packages/archives/OTB/OTB-7.4.0.zip -O /tmp/OTB-7.4.0.zip && \
 	unzip -q /tmp/OTB-7.4.0.zip && rm /tmp/OTB-7.4.0.zip
 
