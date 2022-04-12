@@ -32,12 +32,6 @@ apt-get update 1>/dev/null 2>&1 && apt-get install --no-install-recommends -y \
     gcc \
     g++ \
     make \
-    libpython3.8 \
-    python3.8-dev \
-    python3.8-venv \
-    python3 \
-    python3-pip \
-    python3-numpy \
     unzip \
     ninja-build \
     libboost-date-time-dev \
@@ -55,8 +49,7 @@ apt-get update 1>/dev/null 2>&1 && apt-get install --no-install-recommends -y \
     libmuparserx-dev \
     libsvm-dev \
     swig \
-    libfftw3-dev \
-    python3-virtualenv 1>/dev/null 2>&1 \
+    libfftw3-dev 1>/dev/null 2>&1 \
     && rm -rf /var/lib/apt/lists/*
 echo "Elapsed time: ${SECONDS} seconds"
 
